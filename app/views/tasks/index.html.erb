@@ -1,0 +1,19 @@
+<h1>Tasks </h1>
+
+<ol><% @tasks.each do |task| %>
+<hr>
+  <li>
+  <h3>Name: <%= task.name %></h3>
+  <h3>Done: <%= task.done %></h3>
+  <h3>Priority: <%= task.priority %></h3>
+  <h3><%= link_to "Edit this task", edit_task_path(task.id) %></h3>
+  <h3><%= link_to "Delete", task_path(task),
+      method: :delete,
+      data: { confirm: "Are you sur?" } %></h3>
+  <% end %>
+  </li>
+<hr>
+</ol>
+
+
+<%= link_to "Add a new task", new_task_path %>
